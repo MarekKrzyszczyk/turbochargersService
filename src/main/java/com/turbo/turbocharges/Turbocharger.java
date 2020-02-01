@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -19,5 +16,6 @@ public class Turbocharger {
     @GenericGenerator(name = "inc", strategy = "increment")
     private Integer id;
 
+    @Column
     private String description;
 }

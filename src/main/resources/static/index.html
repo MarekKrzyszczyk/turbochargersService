@@ -14,19 +14,55 @@
     </div>
     <form id="welcomeForm">
         <label class="container">Biuro
-            <input type="radio" checked="checked" name="radio">
+            <input type="radio" checked="checked" name="role" id="biuro" value="biuro">
             <span class="checkmark"></span>
         </label>
         <label class="container">Demontaz
-            <input type="radio" name="radio">
+            <input type="radio" name="role" value="demontaz">
             <span class="checkmark"></span>
         </label>
         <label class="container">Montaz
-            <input type="radio" name="radio">
+            <input type="radio" name="role" value="montaz">
             <span class="checkmark"></span>
         </label>
-        <button type="button" id="btn" class="pure-button pure-button-primary pure-u-1" onclick="window.location.href='http://www.google.com/'">Dalej</button>
+        <button type="button" id="btn" class="pure-button pure-button-primary pure-u-1" onclick="displayRadioValue()">
+            Dalej
+        </button>
+        <br>
     </form>
+    <div id="result"></div>
 </main>
+<script>
+
+    // function start() {
+    //     const API_URL = 'http://localhost:8080';
+    //     const TURBOCHARGERS_API_URL = `${API_URL}/turbochargers`;
+
+        // fetch(TURBOCHARGERS_API_URL)
+        //     .then(processOkResponse);
+    // };
+
+
+
+    // function displayRadioValue() {
+    //     var roles = document.getElementsByName('role');
+    //     for (var i = 0; i < roles.length; i++) {
+    //         if (roles[i].checked) {
+    //             var selectedRole = roles[i].value;
+    //         }
+    //         switch (selectedRole) {
+    //             case "biuro":
+    //                 document.location.href = "./office.html";
+    //                 break;
+    //             case "demontaz":
+    //                 document.location.href = "./deinstallation.html";
+    //                 break;
+    //             case "montaz":
+    //                 document.location.href = "./installation.html";
+    //                 break;
+    //         }
+    //     }
+    // }
+</script>
 </body>
 </html>

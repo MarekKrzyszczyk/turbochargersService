@@ -10,19 +10,19 @@
 <body>
 <main style="width: 40%; margin: 0 auto">
     <div id="welcome" style="text-align: center">
-        <h1>Wybierz swoja rolę:</h1>
+        <h1>Aplikacja do zarządzania zamówieniami:</h1>
     </div>
     <form id="welcomeForm">
-        <label class="container">Biuro
-            <input type="radio" checked="checked" name="role" id="biuro" value="biuro">
+        <label class="container">Turbosprężarki
+            <input type="radio" checked="checked" name="role" id="turbo" value="turbo">
             <span class="checkmark"></span>
         </label>
-        <label class="container">Demontaz
-            <input type="radio" name="role" value="demontaz">
+        <label class="container">Części
+            <input type="radio" name="role" value="part">
             <span class="checkmark"></span>
         </label>
-        <label class="container">Montaz
-            <input type="radio" name="role" value="montaz">
+        <label class="container">Powody usterek
+            <input type="radio" name="role" value="reason">
             <span class="checkmark"></span>
         </label>
         <button type="button" id="btn" class="pure-button pure-button-primary pure-u-1" onclick="displayRadioValue()">
@@ -34,35 +34,27 @@
 </main>
 <script>
 
-    // function start() {
-    //     const API_URL = 'http://localhost:8080';
-    //     const TURBOCHARGERS_API_URL = `${API_URL}/turbochargers`;
-
-        // fetch(TURBOCHARGERS_API_URL)
-        //     .then(processOkResponse);
-    // };
 
 
-
-    // function displayRadioValue() {
-    //     var roles = document.getElementsByName('role');
-    //     for (var i = 0; i < roles.length; i++) {
-    //         if (roles[i].checked) {
-    //             var selectedRole = roles[i].value;
-    //         }
-    //         switch (selectedRole) {
-    //             case "biuro":
-    //                 document.location.href = "./office.html";
-    //                 break;
-    //             case "demontaz":
-    //                 document.location.href = "./deinstallation.html";
-    //                 break;
-    //             case "montaz":
-    //                 document.location.href = "./installation.html";
-    //                 break;
-    //         }
-    //     }
-    // }
+    function displayRadioValue() {
+        var roles = document.getElementsByName('role');
+        for (var i = 0; i < roles.length; i++) {
+            if (roles[i].checked) {
+                var selectedRole = roles[i].value;
+            }
+            switch (selectedRole) {
+                case "turbo":
+                    document.location.href = "./turbochargers.html";
+                    break;
+                case "part":
+                    document.location.href = "./parts.html";
+                    break;
+                case "reason":
+                    document.location.href = "./reasons.html";
+                    break;
+            }
+        }
+    }
 </script>
 </body>
 </html>

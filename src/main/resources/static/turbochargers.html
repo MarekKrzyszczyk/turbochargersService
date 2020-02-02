@@ -9,12 +9,12 @@
 </head>
 <body>
 <main>
-    <form id="turbosForm" class="pure-form" style="text-align: center">
+    <form id="turbosForm" class="pure-form" style="display: block; text-align: center">
         <fieldset>
             <input id="turboText" class="pure-input-rounded pure-input-2-3" placeholder="nowa Turbosprężarka">
             <button id="addTurbo" class="pure-button pure-button-primary">+</button>
         </fieldset>
-        <fieldset id="allTurbos"></fieldset>
+        <fieldset id="allTurbos" style="display: block"></fieldset>
     </form>
 </main>
 <script>
@@ -36,7 +36,7 @@
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({text: turboText.value})
+                body: JSON.stringify({description: turboText.value})
             })
                 .then(processOkResponse)
                 .then(createNewTurbo)
@@ -46,8 +46,10 @@
 
         function createNewTurbo(turbocharger) {
             const label = document.createElement('label');
+            const br = document.createElement('br');
             label.appendChild(document.createTextNode(` ${turbocharger.description}`));
             document.getElementById('allTurbos').appendChild(label);
+            document.getElementById('allTurbos').appendChild(br);
         }
 
         function processOkResponse(response = {}) {

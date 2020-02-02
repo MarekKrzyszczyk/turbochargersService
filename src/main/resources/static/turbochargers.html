@@ -46,10 +46,9 @@
 
         function createNewTurbo(turbocharger) {
             const label = document.createElement('label');
-            const br = document.createElement('br');
             label.appendChild(document.createTextNode(` ${turbocharger.description}`));
             document.getElementById('allTurbos').appendChild(label);
-            document.getElementById('allTurbos').appendChild(br);
+            document.getElementById("allTurbos").innerHTML += '<br>';
         }
 
         function processOkResponse(response = {}) {

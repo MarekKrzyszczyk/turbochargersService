@@ -1,4 +1,4 @@
-package com.turbo.turbopart;
+package com.turbo.model;
 
 import lombok.Getter;
 import lombok.Setter;

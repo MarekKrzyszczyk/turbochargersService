@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Turbochargers</title>
+    <title>Parts</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -54,23 +54,17 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>Model</th>
-                                    <th>Number</th>
-                                    <th>Producer</th>
+                                    <th>Description</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Model</th>
-                                    <th>Number</th>
-                                    <th>Producer</th>
+                                    <th>Description</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <tr th:each="turbo : ${turbos}">
-                                    <td th:text="${turbo.getModel()}"></td>
-                                    <td th:text="${turbo.getNumber()}">System Architect</td>
-                                    <td th:text="${turbo.getProducer()}">Edinburgh</td>
+                                    <td th:value="${turbo.getId()}" th:text="${turbo.getName()}"></td>
                                 </tr>
                                 </tbody>
                             </table>

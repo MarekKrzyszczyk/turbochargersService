@@ -1,21 +1,23 @@
-package com.turbo.reason;
+package com.turbo.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name="reasons")
+@Table(name="reason")
 public class Reason {
     @Id
-    @GeneratedValue(generator = "inc")
-    @GenericGenerator(name = "inc", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column
-    private String description;
+    private String name;
+
+    @OneToMany(mappedBy = "reason")
+    private List<Order> orders;
 }

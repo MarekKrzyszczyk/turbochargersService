@@ -1,21 +1,29 @@
-package com.turbo.turbocharges;
+package com.turbo.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "turbocharges")
+@Table(name = "turbocharger")
 public class Turbocharger {
     @Id
-    @GeneratedValue(generator = "inc")
-    @GenericGenerator(name = "inc", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column
-    private String description;
+    private String number;
+
+    @Column
+    private String model;
+
+    @Column
+    private String producer;
+
+    @OneToMany(mappedBy = "turbocharger")
+    private List<Order> orders;
 }

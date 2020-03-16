@@ -14,5 +14,15 @@ public class UserController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String login(Model model){
+        return "login";
+    }
+
+    @GetMapping("/forgotPassword")
+    public String getForgotPassword(Model model){
+        return "forgot-password";
+    }
+
 
 }

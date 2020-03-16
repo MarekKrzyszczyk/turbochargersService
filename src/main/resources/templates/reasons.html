@@ -63,8 +63,8 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <tr th:each="part : ${partsList}">
-                                    <td th:value="${part.getId()}" th:text="${part.getName()}"></td>
+                                <tr th:each="reason : ${reasons}">
+                                    <td th:value="${reason.getId()}" th:text="${reason.getName()}"></td>
                                 </tr>
                                 </tbody>
                             </table>

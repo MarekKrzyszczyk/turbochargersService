@@ -57,6 +57,7 @@
                                     <th>Model</th>
                                     <th>Number</th>
                                     <th>Producer</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -64,13 +65,22 @@
                                     <th>Model</th>
                                     <th>Number</th>
                                     <th>Producer</th>
+                                    <th>Action</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <tr th:each="turbo : ${turbos}">
                                     <td th:text="${turbo.getModel()}"></td>
-                                    <td th:text="${turbo.getNumber()}">System Architect</td>
-                                    <td th:text="${turbo.getProducer()}">Edinburgh</td>
+                                    <td th:text="${turbo.getNumber()}"></td>
+                                    <td th:text="${turbo.getProducer()}"></td>
+                                    <td>
+                                        <a href="#" class="btn btn-info btn-circle btn-sm">
+                                            <i class="fas fa-info-circle"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                            <i class="fas fa-info-circle"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

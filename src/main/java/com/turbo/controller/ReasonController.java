@@ -1,26 +1,26 @@
 package com.turbo.controller;
 
 import com.turbo.service.PartService;
-import com.turbo.service.TurbochargerService;
+import com.turbo.service.ReasonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class PartController {
+public class ReasonController {
 
-    private PartService partService;
+    private ReasonService reasonService;
 
     @Autowired
-    public PartController(PartService partService) {
-        this.partService = partService;
+    public ReasonController(ReasonService reasonService) {
+        this.reasonService = reasonService;
     }
 
-    @GetMapping("/parts")
+    @GetMapping("/reasons")
     public String parts(Model model){
-        model.addAttribute("partsList", partService.getAllParts());
-        return "parts";
+        model.addAttribute("reasons", reasonService.getAllParts());
+        return "reasons";
     }
 
 }

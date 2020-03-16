@@ -33,4 +33,7 @@ public class Turbocharger {
         this.model = model;
         this.producer = producer;
     }
+
+    public Turbocharger() {
+    }
 }

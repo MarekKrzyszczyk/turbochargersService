@@ -21,4 +21,9 @@ public class TurbochargerService {
         return turbochargerRepository.findAll();
     }
 
+    public void addTurbo(String number, String model, String producer){
+        Turbocharger turbocharger = new Turbocharger(number, model, producer);
+        turbochargerRepository.save(turbocharger);
+    }
+
 }

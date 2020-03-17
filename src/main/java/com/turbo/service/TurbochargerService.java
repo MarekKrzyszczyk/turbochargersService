@@ -31,15 +31,21 @@ public class TurbochargerService {
         turbochargerRepository.deleteById(id);
     }
 
-    public void updateTurbo(Integer id, String number, String model, String producer) {
+    public void updateTurbo(Turbocharger turbocharger) {
+            Turbocharger turbo = findTurboById(turbocharger.getId());
+            turbo.setNumber(turbocharger.getNumber());
+            turbo.setModel(turbocharger.getModel());
+            turbo.setProducer(turbocharger.getProducer());
+            turbochargerRepository.save(turbo);
+        }
+
+    public Turbocharger findTurboById(Integer id) {
         Optional<Turbocharger> optTurbo = turbochargerRepository.findById(id);
         if (optTurbo.isPresent()) {
             Turbocharger turbo = optTurbo.get();
-            turbo.setNumber(number);
-            turbo.setModel(model);
-            turbo.setProducer(producer);
-            turbochargerRepository.save(turbo);
+            return turbo;
         }
+        return optTurbo.orElse(new Turbocharger());
     }
 
 }

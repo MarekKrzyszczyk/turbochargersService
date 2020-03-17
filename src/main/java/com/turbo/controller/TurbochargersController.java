@@ -25,20 +25,20 @@ public class TurbochargersController {
     }
 
     @GetMapping("/turbochargers")
-    public String turbochargers(Model model){
+    public String turbochargers(Model model) {
         model.addAttribute("turbos", turbochargerService.getAllTurbos());
         return "turbochargers";
     }
 
     @GetMapping("/addTurbo")
-    public String addTurbo(Model model){
+    public String addTurbo(Model model) {
         model.addAttribute("turbo", new Turbocharger());
         return "addTurbo";
     }
 
     @PostMapping("/addTurbo")
-    public String addTurbo(@ModelAttribute @Valid Turbocharger turbocharger, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+    public String addTurbo(@ModelAttribute @Valid Turbocharger turbocharger, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return "addTurbo";
         }
         turbochargerService.addTurbo(turbocharger.getNumber(), turbocharger.getModel(), turbocharger.getProducer());
@@ -46,15 +46,31 @@ public class TurbochargersController {
     }
 
     @GetMapping(value = "/deleteTurbo/{id}")
-    private String deleteTurbo(@PathVariable(name = "id") Integer id){
+    private String deleteTurbo(@PathVariable(name = "id") Integer id) {
         turbochargerService.deleteTurbo(id);
         return "redirect:/turbochargers";
     }
 
-    @GetMapping(value = "/updateTurbo/{id}")
-    private String updateTurbo(@PathVariable(name = "id") Integer id){
-        turbochargerService.deleteTurbo(id);
+//    @GetMapping(value = "/updateTurbo/{id}")
+//    private String getUpdatedTurbo(@PathVariable(name = "id") Integer id, Model model) {
+//        model.addAttribute("updTurbo", turbochargerService.findTurboById(id));
+//        return "updateTurbo";
+//    }
+
+    @GetMapping(value = "/updateTurbo")
+    private String getUpdatedTurboSite(Model model, @ModelAttribute @Valid Turbocharger turbo) {
+        model.addAttribute("updTurbo", turbo);
         return "updateTurbo";
+    }
+
+    @PostMapping("/updateTurbo/{id}")
+    private String updateTurbo(@ModelAttribute @Valid Turbocharger turbo, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            bindingResult.getAllErrors().forEach(objectError -> System.out.println(objectError.getDefaultMessage()));
+            return "turbochargers";
+        }
+        turbochargerService.updateTurbo(turbo);
+        return "redirect:/turbochargers";
     }
 
 }

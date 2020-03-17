@@ -12,9 +12,10 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
-<!--     Custom styles for this template-->
+    <!--     Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
@@ -81,10 +82,15 @@
                                     <td th:text="${turbo.getNumber()}"></td>
                                     <td th:text="${turbo.getProducer()}"></td>
                                     <td>
-                                        <a href="@{updateTurbo/__${turbo.id}__}" class="btn btn-info btn-circle btn-sm">
+                                        <!--                                        <a th:href="@{updateTurbo/__${turbo.id}__}"-->
+                                        <!--                                           class="btn btn-info btn-circle btn-sm">-->
+                                        <!--                                            <i class="fas fa-info-circle"></i>-->
+                                        <!--                                        </a>-->
+                                        <a th:href="@{/updateTurbo}" class="btn btn-info btn-circle btn-sm">
                                             <i class="fas fa-info-circle"></i>
                                         </a>
-                                        <a th:href="@{deleteTurbo/__${turbo.id}__}" class="btn btn-danger btn-circle btn-sm">
+                                        <a th:href="@{deleteTurbo/__${turbo.id}__}"
+                                           class="btn btn-danger btn-circle btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -101,9 +107,9 @@
         </div>
         <!-- End of Main Content -->
 
-<!--         Footer -->
+        <!--         Footer -->
         <footer th:replace="fragments/footer :: footer"></footer>
-<!--         End of Footer -->
+        <!--         End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
@@ -117,7 +123,8 @@
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

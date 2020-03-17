@@ -81,10 +81,10 @@
                                     <td th:text="${turbo.getNumber()}"></td>
                                     <td th:text="${turbo.getProducer()}"></td>
                                     <td>
-                                        <a href="#" class="btn btn-info btn-circle btn-sm">
+                                        <a href="@{updateTurbo/__${turbo.id}__}" class="btn btn-info btn-circle btn-sm">
                                             <i class="fas fa-info-circle"></i>
                                         </a>
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                        <a th:href="@{deleteTurbo/__${turbo.id}__}" class="btn btn-danger btn-circle btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>

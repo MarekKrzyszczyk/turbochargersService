@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TurbochargerService {
@@ -17,13 +18,28 @@ public class TurbochargerService {
         this.turbochargerRepository = turbochargerRepository;
     }
 
-    public List<Turbocharger> getAllTurbos(){
+    public List<Turbocharger> getAllTurbos() {
         return turbochargerRepository.findAll();
     }
 
-    public void addTurbo(String number, String model, String producer){
+    public void addTurbo(String number, String model, String producer) {
         Turbocharger turbocharger = new Turbocharger(number, model, producer);
         turbochargerRepository.save(turbocharger);
+    }
+
+    public void deleteTurbo(Integer id) {
+        turbochargerRepository.deleteById(id);
+    }
+
+    public void updateTurbo(Integer id, String number, String model, String producer) {
+        Optional<Turbocharger> optTurbo = turbochargerRepository.findById(id);
+        if (optTurbo.isPresent()) {
+            Turbocharger turbo = optTurbo.get();
+            turbo.setNumber(number);
+            turbo.setModel(model);
+            turbo.setProducer(producer);
+            turbochargerRepository.save(turbo);
+        }
     }
 
 }

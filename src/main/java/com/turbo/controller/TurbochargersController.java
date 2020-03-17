@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -40,7 +42,19 @@ public class TurbochargersController {
             return "addTurbo";
         }
         turbochargerService.addTurbo(turbocharger.getNumber(), turbocharger.getModel(), turbocharger.getProducer());
-        return "redirect:/";
+        return "redirect:/turbochargers";
+    }
+
+    @GetMapping(value = "/deleteTurbo/{id}")
+    private String deleteTurbo(@PathVariable(name = "id") Integer id){
+        turbochargerService.deleteTurbo(id);
+        return "redirect:/turbochargers";
+    }
+
+    @GetMapping(value = "/updateTurbo/{id}")
+    private String updateTurbo(@PathVariable(name = "id") Integer id){
+        turbochargerService.deleteTurbo(id);
+        return "updateTurbo";
     }
 
 }

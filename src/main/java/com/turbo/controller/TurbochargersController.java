@@ -51,17 +51,17 @@ public class TurbochargersController {
         return "redirect:/turbochargers";
     }
 
-//    @GetMapping(value = "/updateTurbo/{id}")
-//    private String getUpdatedTurbo(@PathVariable(name = "id") Integer id, Model model) {
-//        model.addAttribute("updTurbo", turbochargerService.findTurboById(id));
-//        return "updateTurbo";
-//    }
-
-    @GetMapping(value = "/updateTurbo")
-    private String getUpdatedTurboSite(Model model, @ModelAttribute @Valid Turbocharger turbo) {
-        model.addAttribute("updTurbo", turbo);
+    @GetMapping("/updateTurbo/{id}")
+    private String getUpdatedTurbo(@PathVariable(name = "id") Integer id, Model model) {
+        model.addAttribute("updTurbo", turbochargerService.findTurboById(id));
         return "updateTurbo";
     }
+
+//    @GetMapping(value = "/updateTurbo")
+//    private String getUpdatedTurboSite(Model model, @ModelAttribute @Valid Turbocharger turbo) {
+//        model.addAttribute("updTurbo", turbo);
+//        return "updateTurbo";
+//    }
 
     @PostMapping("/updateTurbo/{id}")
     private String updateTurbo(@ModelAttribute @Valid Turbocharger turbo, BindingResult bindingResult) {

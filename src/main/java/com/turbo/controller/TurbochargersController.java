@@ -71,5 +71,4 @@ public class TurbochargersController {
         turbochargerService.updateTurbo(turbo);
         return "redirect:/turbochargers";
     }
-
 }

@@ -32,8 +32,8 @@ public class OrdersController {
     }
 
 
-    @GetMapping("/neworder")
-    public String newOrder(Model model) {
+    @GetMapping("/create-order")
+    public String createOrder(Model model) {
         model.addAttribute("orderTurbos", turbochargerService.getAllTurbos());
         model.addAttribute("partTurbos", partService.getAllParts());
         model.addAttribute("reasonsTurbos", reasonService.getAllReasons());

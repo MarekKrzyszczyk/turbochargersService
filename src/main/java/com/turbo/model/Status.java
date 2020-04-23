@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name="status")
+@Table(name = "status")
 public class Status {
 
     @Id
@@ -21,4 +21,11 @@ public class Status {
 
     @OneToMany(mappedBy = "status")
     private List<Order> orders;
+
+    public Status(String name) {
+        this.name = name;
+    }
+
+    public Status() {
+    }
 }

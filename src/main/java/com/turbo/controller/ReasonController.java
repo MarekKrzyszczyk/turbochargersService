@@ -18,8 +18,8 @@ public class ReasonController {
     }
 
     @GetMapping("/reasons")
-    public String parts(Model model){
-        model.addAttribute("reasons", reasonService.getAllParts());
+    public String reasons (Model model){
+        model.addAttribute("reasons", reasonService.getAllReasons());
         return "reasons";
     }
 

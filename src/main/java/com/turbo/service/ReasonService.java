@@ -18,7 +18,7 @@ public class ReasonService {
         this.reasonRepository = reasonRepository;
     }
 
-    public List<Reason> getAllParts(){
+    public List<Reason> getAllReasons(){
        return reasonRepository.findAll();
     }
 }

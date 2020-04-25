@@ -32,7 +32,7 @@ public class OrdersController {
     }
 
 
-    @GetMapping("/create-order")
+    @GetMapping("/create")
     public String createOrder(Model model) {
         model.addAttribute("orderTurbos", turbochargerService.getAllTurbos());
         model.addAttribute("partTurbos", partService.getAllParts());
@@ -41,7 +41,7 @@ public class OrdersController {
         return "newOrder";
     }
 
-    @PostMapping("/createNewOrder")
+    @PostMapping("/create")
     public String createNewOrder(
             @ModelAttribute @Valid Order order,
             BindingResult bindingResult) {

@@ -42,8 +42,6 @@
                   <form class="user" th:action="@{/login-process}" th:method="post"
                         th:object="${user}">
                     <div class="form-group">
-                      <p th:errors="*{email}" style="font-size: 10px"
-                         class="alert alert-danger"></p>
                       <input th:name="email" th:type="email"
                              class="form-control form-control-user"
                              id="inputLogin"

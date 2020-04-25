@@ -28,7 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .usernameParameter("email")         // nazwa pola dla loginu -> th:name
                     .passwordParameter("password")      // nazwa pola dla hasła -> th:name
                     .loginProcessingUrl("/login-process") // wskazuje adres gdzie są przekazywane te wartości -> nie trzeba mapować w kontrolerze
-                    .defaultSuccessUrl("/") // przekierowanie po poprawnym logowaniu
+                    .defaultSuccessUrl("/index") // przekierowanie po poprawnym logowaniu
                     .failureUrl("/login_error")
                 .and()
                     .logout()
@@ -42,10 +42,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .jdbcAuthentication()
-                .usersByUsernameQuery("SELECT u.email, u.password, status FROM user u WHERE u.email = ?") // wyszukanie użytkownika po adresie email
+                .usersByUsernameQuery("SELECT u.email, u.password, u.status FROM user u WHERE u.email = ?") // wyszukanie użytkownika po adresie email
                 .authoritiesByUsernameQuery(
-                        "SELECT u.email, r.role_name FROM user u JOIN user_role ur ON (u.user_id = ur.user_id) " +
-                                "JOIN role r ON (r.role_id = ur.role_id) WHERE u.email = ?")
+                        "SELECT u.email, r.role_name FROM user u JOIN role r ON (u.role = r.role_id) WHERE u.email = ?")
                 .dataSource(dataSource)
                 .passwordEncoder(passwdEncoder.getPasswordEncoder());       // matoda zwracająca algorytm BCryptPasswordEncoder
     }

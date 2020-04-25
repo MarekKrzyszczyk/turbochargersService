@@ -33,7 +33,8 @@ public class UserController {
     public String login(Authentication auth, Model model){
 //        model.addAttribute("isLogged", auth != null);
 //        model.addAttribute("loggedEmail", auth != null ? ((UserDetails)auth.getPrincipal()).getUsername() : "");    // do sprawdzenia właściciela zadania
-        userService.registerUser();
+//        userService.registerUser();
+        model.addAttribute("isLogged", auth != null);
         model.addAttribute("user", new User());
         return "login";
     }

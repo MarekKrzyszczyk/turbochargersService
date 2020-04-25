@@ -52,6 +52,9 @@
                              class="form-control form-control-user"
                               id="inputPassword" placeholder="Enter password">
                     </div>
+                    <div th:if="${!isLogged}">
+                      <p> nie zalogowano </p>
+                    </div>
                     <input th:type="submit" value="login" class="btn btn-primary mt-2 float-center">
 <!--                    <a href="#" class="btn btn-primary btn-user btn-block">-->
                     </a>

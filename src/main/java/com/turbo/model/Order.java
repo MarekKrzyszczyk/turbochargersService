@@ -19,7 +19,6 @@ public class Order {
 
     @Column(name = "order_date")
     private LocalDate orderDate;
-    ;
 
     @ManyToOne
     @JoinColumn(name = "status_id")

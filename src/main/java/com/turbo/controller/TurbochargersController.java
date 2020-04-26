@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -57,9 +56,9 @@ public class TurbochargersController {
         return "updateTurbo";
     }
 
-//    @GetMapping(value = "/updateTurbo")
-//    private String getUpdatedTurboSite(Model model, @ModelAttribute @Valid Turbocharger turbo) {
-//        model.addAttribute("updTurbo", turbo);
+//    @GetMapping("/updateTurbo")
+//    private String getUpdatedTurboSite(Model model, @ModelAttribute Turbocharger turbo) {
+//        turbochargerService.findTurboById(turbo.getId());
 //        return "updateTurbo";
 //    }
 
@@ -72,5 +71,4 @@ public class TurbochargersController {
         turbochargerService.updateTurbo(turbo);
         return "redirect:/turbochargers";
     }
-
 }

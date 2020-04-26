@@ -19,11 +19,4 @@ public class Part {
     @Column
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name="part_order",
-            joinColumns = @JoinColumn(name="part_id"),
-            inverseJoinColumns = @JoinColumn(name="order_id")
-    )
-    private List<Order> orders;
 }

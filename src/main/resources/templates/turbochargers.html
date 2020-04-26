@@ -86,7 +86,7 @@
                                         <!--                                           class="btn btn-info btn-circle btn-sm">-->
                                         <!--                                            <i class="fas fa-info-circle"></i>-->
                                         <!--                                        </a>-->
-                                        <a th:href="@{/updateTurbo/__${turbo.id}__}" class="btn btn-info btn-circle btn-sm">
+                                        <a th:href="@{/updateTurbo/{id}(id=${turbo.id})}" class="btn btn-info btn-circle btn-sm">
                                             <i class="fas fa-info-circle"></i>
                                         </a>
                                         <a th:href="@{deleteTurbo/__${turbo.id}__}"

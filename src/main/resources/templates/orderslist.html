@@ -67,6 +67,8 @@
                                     <th>Model</th>
                                     <th>Reason</th>
                                     <th>Parts</th>
+                                    <th>Date</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -75,8 +77,9 @@
                                     <td th:text="${order.turbocharger.number}"></td>
                                     <td th:text="${order.turbocharger.model}"></td>
                                     <td th:text="${order.reason.name}"></td>
-                                    <td th:each="part : ${order.parts}"
-                                        th:text="${part.name}"></td>
+                                    <td th:text="${order.parts}"></td>
+                                    <td th:text="${order.orderDate}"></td>
+
 
 <!--                                    <td th:each="turbo : ${order.turbocharger}"-->
 <!--                                        th:text="${turbo.number}"></td>-->

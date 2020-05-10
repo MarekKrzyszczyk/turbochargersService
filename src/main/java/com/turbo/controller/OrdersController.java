@@ -53,12 +53,11 @@ public class OrdersController {
         return "redirect:/orderslist";
 
     }
+
     @GetMapping("/orderslist")
-    public String getOrdersList(Model model){
-    model.addAttribute("listorder", orderService.getAllOrders());
+    public String getOrdersList(Model model) {
+        model.addAttribute("listorder", orderService.getAllOrders());
         return "orderslist";
     }
-
-
 
 }

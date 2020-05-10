@@ -64,17 +64,27 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Number</th>
-<!--                                    <th>Model</th>-->
-<!--                                    <th>Parts</th>-->
-<!--                                    <th>Reason</th>-->
+                                    <th>Model</th>
+                                    <th>Reason</th>
+                                    <th>Parts</th>
+                                    <th>Date</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="order : ${listorder}">
                                     <td th:text="${order.id}"></td>
-                                    <td th:each="turbo : ${order.turbocharger}"
-                                        th:text="${turbo.number}"></td>
-                                    <td>
+                                    <td th:text="${order.turbocharger.number}"></td>
+                                    <td th:text="${order.turbocharger.model}"></td>
+                                    <td th:text="${order.reason.name}"></td>
+                                    <td th:text="${order.parts}"></td>
+                                    <td th:text="${order.orderDate}"></td>
+
+
+<!--                                    <td th:each="turbo : ${order.turbocharger}"-->
+<!--                                        th:text="${turbo.number}"></td>-->
+<!--                                    <td>-->
+
 <!--                                        &lt;!&ndash;                                        <a th:href="@{updateTurbo/__${turbo.id}__}"&ndash;&gt;-->
 <!--                                        &lt;!&ndash;                                           class="btn btn-info btn-circle btn-sm">&ndash;&gt;-->
 <!--                                        &lt;!&ndash;                                            <i class="fas fa-info-circle"></i>&ndash;&gt;-->

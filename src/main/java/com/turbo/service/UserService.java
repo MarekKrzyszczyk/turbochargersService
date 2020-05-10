@@ -28,19 +28,19 @@ public class UserService {
 /**
 Metoda, dzięki której stworzyliśmy przykładowego Usera z zaszyfrowanym hasłem (metoda robocza)
  */
-//    public void registerUser(){
-//
-//        User user = new User();
-//        user.setEmail("turbo@turbo.com");
-//        Optional<Role> byId = roleRepository.findById(1L);
-//        Role role = new Role();
-//        if (byId.isPresent()){
-//            role = byId.get();
-//        }
-//        user.setRole(role);
-//        user.setStatus(true);
-//        user.setPassword(passwordEncoder.encode("turbo"));   // szyfrowanie hasła BCrypt
-//        userRepository.save(user);
-//
-//    }
+    public void registerUser(){
+
+        User user = new User();
+        user.setEmail("turbo@turbo.com");
+        Optional<Role> byId = roleRepository.findById(1L);
+        Role role = new Role();
+        if (byId.isPresent()){
+            role = byId.get();
+        }
+        user.setRole(role);
+        user.setStatus(true);
+        user.setPassword(passwordEncoder.encode("turbo"));   // szyfrowanie hasła BCrypt
+        userRepository.save(user);
+
+    }
 }

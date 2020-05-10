@@ -50,8 +50,15 @@ public class OrdersController {
             return "newOrder";
         }
         orderService.createNewOrder(order.getTurbocharger(), order.getParts(), order.getReason());
-        return "redirect:/";
+        return "redirect:/orderslist";
 
     }
+    @GetMapping("/orderslist")
+    public String getOrdersList(Model model){
+    model.addAttribute("listorder", orderService.getAllOrders());
+        return "orderslist";
+    }
+
+
 
 }

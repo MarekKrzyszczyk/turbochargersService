@@ -28,8 +28,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .usernameParameter("email")         // nazwa pola dla loginu -> th:name
                     .passwordParameter("password")      // nazwa pola dla hasła -> th:name
                     .loginProcessingUrl("/login-process") // wskazuje adres gdzie są przekazywane te wartości -> nie trzeba mapować w kontrolerze
-                    .defaultSuccessUrl("/index") // przekierowanie po poprawnym logowaniu
-                    .failureUrl("/")
+                    .defaultSuccessUrl("/service") // przekierowanie po poprawnym logowaniu
+                    .failureUrl("/login")
                 .and()
                     .logout()
                     .logoutUrl("/logout")

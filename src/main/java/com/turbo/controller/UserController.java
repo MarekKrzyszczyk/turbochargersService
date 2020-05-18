@@ -23,6 +23,10 @@ public class UserController {
         return "index";
     }
 
+    @GetMapping("/home")
+    public String home(){
+       return "index";
+    }
 
     @GetMapping("/forgotPassword")
     public String getForgotPassword(Model model){

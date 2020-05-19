@@ -17,14 +17,6 @@
 
     <!--     Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="css/style-turbo.css" rel="stylesheet">
-
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet"
-          id="bootstrap-css">
-
-
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 </head>
 
@@ -67,16 +59,26 @@
                             </div>
 
                             <div class="table-responsive">
-                                <table class="table table-hover table-dark" id="dataTable">
+                                <table class="table table-bordered" id="dataTable"
+                                       width="100%"
+                                       cellspacing="0">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Model</th>
-                                        <th scope="col">Number</th>
-                                        <th scope="col">Producer</th>
-                                        <th scope="col">Action</th>
+                                        <th>Model</th>
+                                        <th>Number</th>
+                                        <th>Producer</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Model</th>
+                                        <th>Number</th>
+                                        <th>Producer</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody style="overflow-x: hidden">
                                     <tr th:each="turbo : ${orderTurbos}">
                                         <td th:text="${turbo.getModel()}"></td>
                                         <td th:text="${turbo.getNumber()}"></td>
@@ -84,6 +86,7 @@
                                         <td>
                                             <input th:field="*{turbocharger}" th:type="radio"
                                                    th:name="radio-turbo"
+
                                                    th:value="${turbo.getId()}">
                                         </td>
                                     </tr>
@@ -95,78 +98,43 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Parts</h6>
                                 <hr>
                             </div>
+                            <div class="table-responsive">
+                                <table class="table" id="partsTable" width="100%" cellspacing="0"
+                                       style="border:forestgreen solid medium; text-align: center">
 
-                            <!--                            -----------------TEST START-->
-                            <div class="container">
-
-                                <div class="well well-sm text-center">
-
-                                    <div class="btn-group" data-toggle="buttons">
-
-                                        <label class="btn btn-dark" th:each="part : ${partTurbos}">
+                                    <tbody>
+                                    <tr>
+                                        <td th:each="part : ${partTurbos}">
                                             <input th:type="checkbox"
                                                    th:field="*{parts}"
                                                    th:text="${part.getName()}"
-                                                   th:value="${part.getId()}" autocomplete="off">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </label>
-
-                                    </div>
-
-                                </div>
-
+                                                   th:value="${part.getId()}">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
 
-                            <!--                            -----------------TEST STOP-->
-                            <!--                            -----------------TEST START-->
-
-
-                            <!--                            -----------------TEST STOP-->
-
-
-                            <!--                                <label>-->
-                            <!--                                    <input type="checkbox"><span>red</span>-->
-                            <!--                                </label>-->
-                            <!--                            </div>-->
-
-                            <!--                            <div class="ck-button" th:each="part : ${partTurbos}">-->
-                            <!--                                <label>-->
-                            <!--                                    <input th:type="checkbox"-->
-                            <!--                                           th:field="*{parts}"-->
-                            <!--                                           th:value="${part.getId()}"><span-->
-                            <!--                                        th:text="${part.getName()}"></span>-->
-                            <!--                                </label>-->
-                            <!--                            </div>-->
-
-
+                            <hr>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Reasons</h6>
                                 <hr>
                             </div>
                             <div class="table-responsive">
+                                <table class="table" id="reasonsTable" width="100%" cellspacing="0"
+                                       style="border:forestgreen solid medium; text-align: center">
 
-                                <div class="container">
-
-                                    <div class="well well-sm text-center">
-                                        <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-dark"
-                                                   th:each="reason : ${reasonsTurbos}">
-                                                <input th:type="radio" th:name="radio-reason"
-                                                       th:field="*{reason}"
-                                                       th:text="${reason.getName()}"
-                                                       th:value="${reason.getId()}" name="options"
-                                                       id="option1" autocomplete="off">
-                                                <span class="glyphicon glyphicon-ok"></span>
-                                            </label>
-
-
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
+                                    <tbody>
+                                    <tr>
+                                        <td th:each="reason : ${reasonsTurbos}">
+                                            <input th:type="radio" th:name="radio-reason"
+                                                   th:field="*{reason}"
+                                                   th:text="${reason.getName()}"
+                                                   th:value="${reason.getId()}">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                             <input th:type="submit" th:value="Confirm"
                                    class="btn btn-primary mt-2 float-center"
@@ -235,8 +203,6 @@
 
 <!-- Page level custom scripts -->
 <script src="js/demo/datatables-demo.js"></script>
-<script src="js/turbo.js"></script>
-
 
 </body>
 </html>

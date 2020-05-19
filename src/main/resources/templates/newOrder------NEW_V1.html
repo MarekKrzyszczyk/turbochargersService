@@ -17,12 +17,10 @@
 
     <!--     Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="css/style-turbo.css" rel="stylesheet">
+    <!--    <link href="css/style-turbo.css" rel="stylesheet">-->
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet"
           id="bootstrap-css">
-
-
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -97,33 +95,18 @@
                             </div>
 
                             <!--                            -----------------TEST START-->
-                            <div class="container">
 
-                                <div class="well well-sm text-center">
-
-                                    <div class="btn-group" data-toggle="buttons">
-
-                                        <label class="btn btn-dark" th:each="part : ${partTurbos}">
-                                            <input th:type="checkbox"
-                                                   th:field="*{parts}"
-                                                   th:text="${part.getName()}"
-                                                   th:value="${part.getId()}" autocomplete="off">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </label>
-
-                                    </div>
-
-                                </div>
-
+                            <div>
+                                <span class="button-checkbox col-md-2"
+                                      th:each="part : ${partTurbos}">
+                                    <button type="button" class="btn" data-color="primary"
+                                            th:text="${part.getName()}"></button>
+                                    <input th:type="checkbox" class="hidden" checked
+                                           th:field="*{parts}"
+                                           th:value="${part.getId()}"/>
+                                </span>
                             </div>
-
                             <!--                            -----------------TEST STOP-->
-                            <!--                            -----------------TEST START-->
-
-
-                            <!--                            -----------------TEST STOP-->
-
-
                             <!--                                <label>-->
                             <!--                                    <input type="checkbox"><span>red</span>-->
                             <!--                                </label>-->
@@ -139,32 +122,22 @@
                             <!--                            </div>-->
 
 
+
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Reasons</h6>
                                 <hr>
                             </div>
                             <div class="table-responsive">
 
-                                <div class="container">
-
-                                    <div class="well well-sm text-center">
-                                        <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-dark"
-                                                   th:each="reason : ${reasonsTurbos}">
-                                                <input th:type="radio" th:name="radio-reason"
-                                                       th:field="*{reason}"
-                                                       th:text="${reason.getName()}"
-                                                       th:value="${reason.getId()}" name="options"
-                                                       id="option1" autocomplete="off">
-                                                <span class="glyphicon glyphicon-ok"></span>
-                                            </label>
-
-
-                                        </div>
-
-
-                                    </div>
-
+                                <div>
+                                <span class="button-checkbox col-md-4"
+                                      th:each="reason : ${reasonsTurbos}">
+                                    <button type="button" class="btn" data-color="primary"
+                                            th:text="${reason.getName()}"></button>
+                                    <input th:type="radio" class="hidden" checked
+                                           th:field="*{reason}"
+                                           th:value="${reason.getId()}"/>
+                                </span>
                                 </div>
 
                             </div>

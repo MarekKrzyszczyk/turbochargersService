@@ -83,6 +83,18 @@ a:hover {
 }
 
 .overlay-mf {
+   position: absolute;
+   top: 0;
+   left: 0px;
+   padding: 0;
+   height: 100%;
+   width: 100%;
+   opacity: .7;
+ }
+
+div.overlay-turbo-mf {
+  background-color: black;
+  background-size: auto;
   position: absolute;
   top: 0;
   left: 0px;
@@ -395,6 +407,7 @@ a:hover {
   padding-top: 1.563rem;
   padding-bottom: 1.563rem;
 }
+
 
 .navbar-b.navbar-reduce {
   box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.06);
@@ -1047,7 +1060,7 @@ a:hover {
 ======================================*/
 
 .footer-paralax {
-  padding: 4rem 0 0 0;
+  padding: 0 0 0 0;
 }
 
 .contact-mf {

@@ -51,118 +51,111 @@
 </h3>
 <!--/ Section Services Star /-->
 <section id="service" class="services-mf route">
-    <form>
-    <div class="container" th:action="@{/create}" th:method="post" th:object="${order}">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="title-box text-center">
-                    <h3 class="title-a" style="margin-top: 100px">
-                        Nowe zamówienie
-                    </h3>
-                    <p class="subtitle-a"></p>
-                    <div class="line-mf"></div>
+    <form th:action="@{/create}" th:method="post" th:object="${order}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="title-box text-center">
+                        <h3 class="title-a" style="margin-top: 100px">
+                            Nowe zamówienie
+                        </h3>
+                        <p class="subtitle-a"></p>
+                        <div class="line-mf"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div>
-                <h5>Wybierz rodzaj turbosprężarki</h5>
-            </div>
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table table-hover table-dark-turbo" id="dataTable">
-                        <thead>
-                        <tr>
-                            <th scope="col">Model</th>
-                            <th scope="col">Number</th>
-                            <th scope="col">Producer</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="turbo : ${orderTurbos}">
-                            <td th:text="${turbo.getModel()}"></td>
-                            <td th:text="${turbo.getNumber()}"></td>
-                            <td th:text="${turbo.getProducer()}"></td>
-                            <td>
-                                <input th:field="*{turbocharger}" th:type="radio"
-                                       th:name="radio-turbo"
-                                       th:value="${turbo.getId()}">
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+            <div class="row">
+                <div>
+                    <h5>Wybierz rodzaj turbosprężarki</h5>
+                </div>
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-dark-turbo" id="dataTable">
+                            <thead>
+                            <tr>
+                                <th scope="col">Model</th>
+                                <th scope="col">Number</th>
+                                <th scope="col">Producer</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="turbo : ${orderTurbos}">
+                                <td th:text="${turbo.getModel()}"></td>
+                                <td th:text="${turbo.getNumber()}"></td>
+                                <td th:text="${turbo.getProducer()}"></td>
+                                <td>
+                                    <input th:field="*{turbocharger}" th:type="radio"
+                                           th:name="radio-turbo"
+                                           th:value="${turbo.getId()}">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <hr>
+            <hr>
 
-        <div class="row" th:action="@{/create}" th:method="post" th:object="${order}">
-            <div>
-                <h5>Wybierz potrzebne części</h5>
-            </div>
-            <div class="col-md-12">
-                <div class="container">
-                    <div class="well well-sm text-center">
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-dark-turbo" th:each="part : ${partTurbos}">
-                                <input th:type="checkbox"
-                                       th:field="*{parts}"
-                                       th:text="${part.getName()}"
-                                       th:value="${part.getId()}" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>
+            <div class="row">
+                <div>
+                    <h5>Wybierz potrzebne części</h5>
+                </div>
+                <div class="col-md-12">
+                    <div class="container">
+                        <div class="well well-sm text-center">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-dark-turbo" th:each="part : ${partTurbos}">
+                                    <input th:type="checkbox"
+                                           th:field="*{parts}"
+                                           th:text="${part.getName()}"
+                                           th:value="${part.getId()}" autocomplete="off">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr>
+            <hr>
 
-        <div class="row" th:action="@{/create}" th:method="post" th:object="${order}">
-            <div>
-                <h5>Przyczyna awarii</h5>
-            </div>
-            <div class="col-md-12">
-                <div class="container">
-                    <div class="well well-sm text-center">
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-dark-turbo"
-                                   th:each="reason : ${reasonsTurbos}">
-                                <input th:type="radio" th:name="radio-reason"
-                                       th:field="*{reason}"
-                                       th:text="${reason.getName()}"
-                                       th:value="${reason.getId()}" name="options"
-                                       id="option1" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>
+            <div class="row">
+                <div>
+                    <h5>Przyczyna awarii</h5>
+                </div>
+                <div class="col-md-12">
+                    <div class="container">
+                        <div class="well well-sm text-center">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-dark-turbo"
+                                       th:each="reason : ${reasonsTurbos}">
+                                    <input th:type="radio" th:name="radio-reason"
+                                           th:field="*{reason}"
+                                           th:text="${reason.getName()}"
+                                           th:value="${reason.getId()}" name="options"
+                                           id="option1" autocomplete="off">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <hr>
+            <input th:type="submit" th:value="Zamów"
+                   class="btn btn-dark-confirm-turbo mt-2 float-center"
+                   style="float: right;">
         </div>
-
-        <hr>
-
-
-
-    </div>
-    </div>
-    </div>
-        <input th:type="submit" th:value="Zamów"
-               class="btn btn-dark mt-2 float-center"
-               style="float: right;">
     </form>
 </section>
-<div class="row"></div>
 
 
 <!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
+<!--<a class="scroll-to-top rounded" href="#page-top">-->
+<!--    <i class="fas fa-angle-up"></i>-->
+<!--</a>-->
 <!--/ Section Services End /-->
 
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

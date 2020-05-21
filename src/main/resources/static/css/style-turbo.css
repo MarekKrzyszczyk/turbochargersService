@@ -45,6 +45,20 @@
   opacity: 1;
 }
 
+/*-----button dark tuning---------*/
+
+.btn-dark-confirm-turbo {
+  color: #fff;
+  background-color: #343a40;
+  border-color: red;
+  border-width: 5px;
+}
+
+.btn-dark-confirm-turbo:hover {
+  color: #fff;
+  background-color: red;
+  border-color: #1d2124;
+}
 
 /*-----button dark tuning---------*/
 

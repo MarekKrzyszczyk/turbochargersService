@@ -105,9 +105,9 @@
                 <div class="col-md-12">
                     <div class="container">
                         <div class="well well-sm text-center">
-                            <div class="btn-group" data-toggle="buttons">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-dark-turbo" th:each="part : ${partTurbos}">
-                                    <input th:type="checkbox"
+                                    <input type="checkbox"
                                            th:field="*{parts}"
                                            th:text="${part.getName()}"
                                            th:value="${part.getId()}" autocomplete="off">
@@ -128,7 +128,7 @@
                 <div class="col-md-12">
                     <div class="container">
                         <div class="well well-sm text-center">
-                            <div class="btn-group" data-toggle="buttons">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-dark-turbo"
                                        th:each="reason : ${reasonsTurbos}">
                                     <input th:type="radio" th:name="radio-reason"
@@ -144,13 +144,20 @@
                 </div>
             </div>
             <hr>
-            <input th:type="submit" th:value="Zamów"
-                   class="btn btn-dark-confirm-turbo mt-2 float-center"
-                   style="float: right;">
+            <div>
+                <input th:type="submit" th:value="Zamów"
+                       class="btn btn-dark-confirm-turbo mt-2 float-center"
+                       style="float: right">
+                <span></span>
+                <a href="service">
+                    <input th:value="Anuluj"
+                           class="btn btn-dark-turbo mt-2 float-center"
+                           style="float: right">
+                </a>
+            </div>
         </div>
     </form>
 </section>
-
 
 <!-- Scroll to Top Button-->
 <!--<a class="scroll-to-top rounded" href="#page-top">-->
@@ -178,5 +185,18 @@
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+<!-- Script to activate radio button and change row color after click anywhere in table -->
+<script>
+    $('.table tbody tr').click(function (event) {
+        if (event.target.type !== 'radio') {
+            $(':radio', this).trigger('click');
+            var selected = $(this).hasClass("highlight");
+            $(".table tr").removeClass("highlight");
+            if (!selected)
+                $(this).addClass("highlight");
+        }
+    });
+</script>
 </body>
 </html>

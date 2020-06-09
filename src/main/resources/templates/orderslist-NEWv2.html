@@ -2,7 +2,7 @@
 <html xmlns:th=”http://www.thymeleaf.org”>
 <head>
     <meta charset="utf-8">
-    <title>Nowe zamówienie</title>
+    <title>Lista zamówień</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -19,7 +19,7 @@
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+<!--    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">-->
 
     <!-- Main Stylesheet File -->
     <!--  <link href="css/style.css" rel="stylesheet">-->
@@ -34,6 +34,12 @@
       License: https://bootstrapmade.com/license/
     ======================================================= -->
     <!--    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -49,6 +55,8 @@
 <h3 class="title-a">
 
 </h3>
+
+
 <!--/ Section Services Star /-->
 <section id="service" class="services-mf route">
     <form th:action="@{/create}" th:method="post" th:object="${order}">
@@ -64,48 +72,25 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="col-md-4">
-                <div class="row">
-                    <p>Filtruj po numerze turbo:</p>
-                </div>
-                <div class="row">
-                    <input type="text" id="searchInputTurboNumber"
-                           onkeyup="runSearchTurboByNumberFunctions()"
-                           placeholder="numer turbosprężarki" title="Wpisz numer" style="width: 200px">
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="row">
-                    <p>Filtruj po modelu turbo:</p>
-                </div>
-                <div class="row">
-                    <input type="text" id="searchInputTurboModel"
-                           onkeyup="runSearchTurboByModelFunctions()"
-                           placeholder="model turbosprężarki" title="Wpisz numer" style="width: 200px">
-                </div>
-            </div>
-
-
-
-            <hr>
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
-
+                        <div>
+                            <input type="text" id="searchInputTurboNumber"
+                                   onkeyup="runBothFunctions()"
+                                   placeholder="Search for turbo number" title="Type turbo number">
+                        </div>
 
                         <table class="table table-hover table-dark-turbo" id="dataTable">
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Numer zamówienia</th>
-                                <th>Data</th>
-                                <th>Numer turbo</th>
+                                <th>Order number</th>
+                                <th>Date</th>
+                                <th>Number</th>
                                 <th>Model</th>
-                                <th>Przyczyna awarii</th>
-                                <th>Części</th>
+                                <th>Reason</th>
+                                <th>Parts</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -131,49 +116,43 @@
     </form>
 </section>
 
-
-<!-- Scroll to Top Button-->
-<!--<a class="scroll-to-top rounded" href="#page-top">-->
-<!--    <i class="fas fa-angle-up"></i>-->
-<!--</a>-->
-<!--/ Section Services End /-->
-
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 <div id="preloader"></div>
 
 <!-- JavaScript Libraries -->
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/jquery/jquery-migrate.min.js"></script>
-<script src="lib/popper/popper.min.js"></script>
+<!--<script src="lib/popper/popper.min.js"></script>-->
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
 <script src="lib/counterup/jquery.waypoints.min.js"></script>
 <script src="lib/counterup/jquery.counterup.js"></script>
 <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="lib/lightbox/js/lightbox.min.js"></script>
+<!--<script src="lib/lightbox/js/lightbox.min.js"></script>-->
 <script src="lib/typed/typed.min.js"></script>
-<!-- Contact Form JavaScript File -->
-<script src="contactform/contactform.js"></script>
 
-<!-- Template Main Javascript File -->
-<script src="js/main.js"></script>
-<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<!-- Script to activate radio button and change row color after click anywhere in table -->
+<!--<script>-->
+<!--    $('.table tbody tr').click(function (event) {-->
+<!--        if (event.target.type !== 'radio') {-->
+<!--            $(':radio', this).trigger('click');-->
+<!--            var selected = $(this).hasClass("highlight");-->
+<!--            $(".table tr").removeClass("highlight");-->
+<!--            if (!selected)-->
+<!--                $(this).addClass("highlight");-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
 
 
-<!-- Script to search and row count -->
+<!--<script type="text/javascript"-->
+<!--        src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
 <script type="text/javascript">
 
-    function runSearchTurboByNumberFunctions() {
+    function runBothFunctions() {
         searchTurboNumberFunction();
         rowsCount();
     }
-
-    function runSearchTurboByModelFunctions() {
-        searchTurboModelFunction();
-        rowsCount();
-    }
-
-
 
     function rowsCount() {
         // var totalRowCount = $("#dataTable tr").length;
@@ -205,38 +184,41 @@
         }
     }
 
-    function searchTurboModelFunction() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchInputTurboModel");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("dataTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[4];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-
 </script>
 
-<!-- Script to activate radio button and change row color after click anywhere in table -->
-<script>
-    $('.table tbody tr').click(function (event) {
-        if (event.target.type !== 'radio') {
-            $(':radio', this).trigger('click');
-            var selected = $(this).hasClass("highlight");
-            $(".table tr").removeClass("highlight");
-            if (!selected)
-                $(this).addClass("highlight");
-        }
-    });
-</script>
+
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+<!--        $('#dataTable').DataTable({-->
+<!--            "pagingType": "full_numbers"-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/datatables-demo.js"></script>
+
+
+
+
+
 </body>
 </html>

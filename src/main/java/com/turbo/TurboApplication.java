@@ -10,6 +10,7 @@ public class TurboApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TurboApplication.class, args);
+
 	}
 
 }

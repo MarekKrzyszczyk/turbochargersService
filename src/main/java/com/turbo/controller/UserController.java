@@ -36,6 +36,7 @@ public class UserController {
     @GetMapping("/login")
     public String login(Authentication auth, Model model){
         model.addAttribute("isLogged", auth != null);
+//        userService.registerUser();
         model.addAttribute("user", new User());
        return "login";
     }

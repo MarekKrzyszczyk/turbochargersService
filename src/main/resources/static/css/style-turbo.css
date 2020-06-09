@@ -102,7 +102,8 @@
 
 
 .table-dark-turbo, .table-dark-turbo > td, .table-dark-turbo > th {
-  background-color: #c6c8ca
+  background-color: #c6c8ca;
+  border-radius: 5px;
 }
 
 .table-hover .table-dark-turbo:hover {
@@ -116,7 +117,8 @@
 
 .table-dark-turbo {
   color: #fff;
-  background-color: #212529
+  background-color: #212529;
+  border-radius: 5px;
 }
 
 .table-dark-turbo td, .table-dark-turbo th, .table-dark-turbo thead th {

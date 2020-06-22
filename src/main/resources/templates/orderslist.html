@@ -180,7 +180,7 @@
         var rowCount = $('#dataTable tr').filter(function () {
             return $(this).css('display') !== 'none';
         }).length - 1;
-        var message = "\nTotal number of selected orders: " + rowCount;
+        var message = "\nLiczba zamówień spełniających kryteria filtrowania: " + rowCount;
         var sumRows = document.getElementById("summaryId");
         sumRows.innerText = message;
     }

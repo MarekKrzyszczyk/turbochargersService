@@ -2,7 +2,7 @@
 <html xmlns:th=”http://www.thymeleaf.org”>
 <head>
     <meta charset="utf-8">
-    <title>Nowe zamówienie</title>
+    <title>Turbosprężarki</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -53,7 +53,7 @@
 <h3 class="title-a">
 
 </h3>
-<!--/ Section Services Star /-->
+/ Section Services Star /
 <section class="services-mf route">
     <form>
         <div class="container">
@@ -102,42 +102,26 @@
                     </div>
                 </div>
             </div>
-
-            <!--            <div>-->
-            <!--                <a href="addTurbo">-->
-            <!--                    <input type="button" value="Dodaj nowy model"-->
-            <!--                           class="btn btn-dark-turbo float-center"-->
-            <!--                           style="float: right">-->
-            <!--                </a>-->
-            <!--            </div>-->
-
-            <!--            <div>-->
-            <!--                &lt;!&ndash;                <a href="addTurbo">&ndash;&gt;-->
-            <!--                <input onclick="hideUnhideFunction()" type="button" value="TEST"-->
-            <!--                       class="btn btn-dark-turbo float-center"-->
-            <!--                       style="float: right">-->
-            <!--                &lt;!&ndash;                </a>&ndash;&gt;-->
-            <!--            </div>-->
-
-
         </div>
     </form>
 </section>
 
-<section>
+
+
+<section class="services-mf route">
     <form>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="addTurbo">
-                        <input type="button" value="OLD Dodaj nowy model"
-                               class="btn btn-dark-turbo float-center"
-                               style="float: right">
-                    </a>
+                    <!--                    <a href="addTurbo">-->
+                    <!--                        <input type="button" value="OLD Dodaj nowy model"-->
+                    <!--                               class="btn btn-dark-turbo float-center"-->
+                    <!--                               style="float: right">-->
+                    <!--                    </a>-->
 
                     <input onclick="hideUnhideFunction()" type="button" value="Dodaj nowy model"
                            class="btn btn-dark-turbo float-center"
-                           style="float: right">
+                           style="float: right" th:action="@{/dupatest}">
                 </div>
             </div>
         </div>
@@ -147,7 +131,8 @@
 
 <!-- Section to add new turbocharger - hidden by default START-->
 <section id="addTurboSection" style="display: none" class="services-mf route">
-    <form>
+    <!--    <form th:method="post" th:object="${turboTest}" th:action="@{/turbochargers}">-->
+    <form th:method="post" th:object="${turboTest}">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -163,21 +148,21 @@
                                 <th scope="col">Model</th>
                                 <th scope="col">Numer</th>
                                 <th scope="col">Producent</th>
-                                <th scope="col">Dodaj</th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
-
                             <tr>
-                                <!--                                <td><input type="text" PLACEHOLDER="wpisz model" style="background-color: transparent;color: magenta" ></td>-->
-                                <!--                        <td><input th:field="*{model}" th:type="text" id="model" class="input-table" placeholder="wpisz model"></td>-->
-                                <td><input class="input-table" placeholder="wpisz model"></td>
-                                <td><input class="input-table" placeholder="wpisz numer"></td>
-                                <td><input class="input-table" type="text" placeholder="wpisz producenta"></td>
-                                <!--                                <td contenteditable="true" ></td>-->
-                                <!--                                <td th:text="Producer"></td>-->
+<!-------------------zeby dodac nowe turbo musimy miec th:field="*{model}"  ale przez to nie dziala - DO ROZKMINY-->
+<!--                                <td><input th:field="*{model}" th:type="text" class="input-table" placeholder="wpisz model"></td>-->
+                                <td><input field="*{model}" th:type="text" class="input-table" placeholder="wpisz model"></td>
+                                <td><input field="*{number}" th:type="text" class="input-table" placeholder="wpisz numer"></td>
+                                <td><input field="*{producer}" th:type="text" class="input-table" type="text"
+                                           placeholder="wpisz producenta"></td>
                                 <td>
-
+                                    <input th:type="submit" type="button" th:value="Zatwierdź"
+                                           class="btn btn-dark-turbo float-center"
+                                           style="float: right">
                                 </td>
                             </tr>
                             </tbody>
@@ -185,15 +170,6 @@
                     </div>
                 </div>
             </div>
-
-            <div>
-                <a href="addTurbo">
-                    <input type="button" value="Zatwierdź"
-                           class="btn btn-dark-turbo float-center"
-                           style="float: right">
-                </a>
-            </div>
-
         </div>
     </form>
 </section>

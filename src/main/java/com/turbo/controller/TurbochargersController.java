@@ -22,6 +22,21 @@ public class TurbochargersController {
     public TurbochargersController(TurbochargerService turbochargerService) {
         this.turbochargerService = turbochargerService;
     }
+//---------------do odkomentowania:-------------------------
+//    @GetMapping("/turbochargers")
+//    public String turbochargers(Model model) {
+//        model.addAttribute("turbos", turbochargerService.getAllTurbos());
+//        return "turbochargers";
+//    }
+
+
+
+
+
+
+
+
+//--------------------------testy turbochargers i dodawania turbo na jednej stronie START--------
 
     @GetMapping("/turbochargers")
     public String turbochargers(Model model) {
@@ -29,20 +44,43 @@ public class TurbochargersController {
         return "turbochargers";
     }
 
-    @GetMapping("/addTurbo")
-    public String addTurbo(Model model) {
-        model.addAttribute("turbo", new Turbocharger());
-        return "addTurbo";
-    }
-
-    @PostMapping("/addTurbo")
+//    @GetMapping("/turbochargers")
+//    public String addTurbo(Model model) {
+//        model.addAttribute("turboTest", new Turbocharger());
+//        return "turbochargers";
+//    }
+    @PostMapping("/turbochargers")
     public String addTurbo(@ModelAttribute @Valid Turbocharger turbocharger, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "addTurbo";
+            return "turbochargers";
         }
         turbochargerService.addTurbo(turbocharger.getNumber(), turbocharger.getModel(), turbocharger.getProducer());
         return "redirect:/turbochargers";
     }
+
+//--------------------------testy turbochargers i dodawania turbo na jednej stronie STOP--------
+
+
+
+
+
+
+
+//---------------do odkomentowania:-------------------------
+//    @GetMapping("/addTurbo")
+//    public String addTurbo(Model model) {
+//        model.addAttribute("turbo", new Turbocharger());
+//        return "addTurbo";
+//    }
+
+//    @PostMapping("/addTurbo")
+//    public String addTurbo(@ModelAttribute @Valid Turbocharger turbocharger, BindingResult bindingResult) {
+//        if (bindingResult.hasErrors()) {
+//            return "addTurbo";
+//        }
+//        turbochargerService.addTurbo(turbocharger.getNumber(), turbocharger.getModel(), turbocharger.getProducer());
+//        return "redirect:/turbochargers";
+//    }
 
     @GetMapping(value = "/deleteTurbo/{id}")
     private String deleteTurbo(@PathVariable(name = "id") Integer id) {
